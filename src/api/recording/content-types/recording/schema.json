@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recordings",
+  "info": {
+    "singularName": "recording",
+    "pluralName": "recordings",
+    "displayName": "Recording",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "custom_folder": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::custom-folder.custom-folder"
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    },
+    "notes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::note.note",
+      "mappedBy": "recording"
+    },
+    "durationJson": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
